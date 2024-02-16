@@ -1,12 +1,8 @@
-import SnackbarProviderCustom from "@/components/custom/snackbar/snackbar-provider";
 import axiosClient from "@/helper/call-center";
 import store from "@/redux/store";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+import { SnackbarProvider } from "notistack";
 import { ReactElement, ReactNode } from "react";
 import { Provider } from "react-redux";
 import { SWRConfig } from "swr";
@@ -29,7 +25,7 @@ export const GlobalProvider = (props: IGlobalProvider) => {
     >
       <Provider store={store}>
         <CacheProvider value={emotionCache}>
-          <SnackbarProviderCustom>{children}</SnackbarProviderCustom>
+          <SnackbarProvider maxSnack={3}>{children}</SnackbarProvider>
         </CacheProvider>
       </Provider>
     </SWRConfig>
