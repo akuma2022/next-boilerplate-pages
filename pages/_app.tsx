@@ -1,6 +1,7 @@
 import { AppPropsWithLayout } from "@/interface";
-import "@/styles/globals.css";
 import { GlobalProvider } from "@/provider";
+import "@/translate";
+import "@/styles/globals.scss";
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout;
